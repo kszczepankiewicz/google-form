@@ -1,9 +1,13 @@
-const form = document.querySelector('form');
-const input = document.querySelector('input');
+const hintForm = document.getElementById('hint-form');
+const hintInput = document.getElementById('hint-input');
 
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    window.open(`https://www.google.com/search?q=Hint without solution: \n${input.value}`);
-    input.value = '';
+hintForm.addEventListener('submit', (e) => {
+    google(e);
 })
+
+function google(e) {
+    e.preventDefault();
+    window.open(`https://www.google.com/search?q=Hint without solution: \n${hintInput.value}`);
+    hintInput.value = '';
+}
 
