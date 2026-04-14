@@ -3,9 +3,7 @@ const input = document.querySelector('input');
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    const url = `https://www.google.com/search?`;
-    const text = `Hint without solution: \n`;
-    const query = `${url}q=${text}${input.value}`;
-    window.open(query)
+    window.open(`https://www.google.com/search?q=Hint without solution: \n${input.value}`);
+    input.value = '';
 })
 
