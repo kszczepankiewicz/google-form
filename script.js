@@ -1,11 +1,12 @@
 const hintForm = document.getElementById('hint-form');
-const safeForm = document.getElementById('safe-form');
-
 const hintInput = document.getElementById('hint-input');
-const history = document.getElementById('history');
-
 const hintLabel = document.getElementById('hint-label');
+
+const safeForm = document.getElementById('safe-form');
+const safeInput = document.getElementById('safe-input');
 const safeLabel = document.getElementById('safe-label');
+
+const history = document.getElementById('history');
 
 const googleUrl = `https://www.google.com/search?q=`;
 
@@ -30,10 +31,13 @@ function google(url, prompt, question, e) {
 const labels = [hintLabel, safeLabel]
 
 // [hintForm, safeForm].forEach((el, index) => el.addEventListener('submit', (e) => {
-//     e.preventDefault();
-//     google(googleUrl, labels[index].textContent);
+//     google(googleUrl, el.value, labels[index].textContent, e);
 // }));
 
 hintForm.addEventListener('submit', (e) => {
     google(googleUrl, hintInput.value, hintLabel.textContent, e);
+});
+
+safeForm.addEventListener('submit', (e) => {
+    google(googleUrl, safeInput.value, safeLabel.textContent, e);
 });
