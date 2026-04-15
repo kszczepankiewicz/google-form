@@ -16,9 +16,8 @@ const addToHistory = (prompt, question) => {
     history.append(li);
 }
 
-function google(url, prompt, question, e) {
+function google(url, question, prompt, e) {
     e.preventDefault();
-    // const question = hintInput.value;
     try {
         window.open(`${url}${prompt} \n${question}`);
     } catch (error) {
@@ -27,16 +26,14 @@ function google(url, prompt, question, e) {
     addToHistory(prompt, question);
     hintInput.value = '';
 }
+// const copyInput = inputText => { }
 
-const labels = [hintLabel, safeLabel]
+const labels = [hintLabel, safeLabel];
+const inputs = [hintInput, safeInput];
 
-// [hintForm, safeForm].forEach((el, index) => el.addEventListener('submit', (e) => {
-//     google(googleUrl, el.value, labels[index].textContent, e);
-// }));
-
-hintForm.addEventListener('submit', (e) => {
-    google(googleUrl, hintInput.value, hintLabel.textContent, e);
-});
+[hintForm].forEach((el, index) => el.addEventListener('submit', (e) => {
+    google(googleUrl, inputs[index].value, labels[index].textContent, e);
+}));
 
 safeForm.addEventListener('submit', (e) => {
     google(googleUrl, safeInput.value, safeLabel.textContent, e);
