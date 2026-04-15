@@ -1,7 +1,11 @@
 const hintForm = document.getElementById('hint-form');
+const safeForm = document.getElementById('safe-form');
+
 const hintInput = document.getElementById('hint-input');
 const history = document.getElementById('history');
+
 const hintLabel = document.getElementById('hint-label');
+const safeLabel = document.getElementById('safe-label');
 
 const googleUrl = `https://www.google.com/search?q=`;
 
@@ -11,15 +15,25 @@ const addToHistory = (prompt, question) => {
     history.append(li);
 }
 
-function google(e, url, prompt) {
+function google(url, prompt, question, e) {
     e.preventDefault();
-    const question = hintInput.value;
-    window.open(`${url}${prompt} \n${question}`);
+    // const question = hintInput.value;
+    try {
+        window.open(`${url}${prompt} \n${question}`);
+    } catch (error) {
+        alert('Not open');
+    }
     addToHistory(prompt, question);
     hintInput.value = '';
 }
 
-[hintForm].forEach(el => el.addEventListener('submit', (e) => {
-    google(e, googleUrl, hintLabel.textContent);
-}));
+const labels = [hintLabel, safeLabel]
 
+// [hintForm, safeForm].forEach((el, index) => el.addEventListener('submit', (e) => {
+//     e.preventDefault();
+//     google(googleUrl, labels[index].textContent);
+// }));
+
+hintForm.addEventListener('submit', (e) => {
+    google(googleUrl, hintInput.value, hintLabel.textContent, e);
+});
