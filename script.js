@@ -24,7 +24,7 @@ function google(url, question, prompt, e) {
         alert('Not open');
     }
     addToHistory(prompt, question);
-    hintInput.value = '';
+    // hintInput.value = ''; // not working
 }
 // const copyInput = inputText => { }
 
@@ -41,10 +41,5 @@ class Section {
 
 
 const hintObj = new Section('hint');
-// [hintForm].forEach((el, index) => el.addEventListener('submit', (e) => {
-//     google(googleUrl, inputs[index].value, labels[index].textContent, e);
-// }));
-hintObj.form.addEventListener('submit', (e) => google(googleUrl, hintObj.input.value, hintObj.label.textContent, e));
-// safeForm.addEventListener('submit', (e) => {
-//     google(googleUrl, safeInput.value, safeLabel.textContent, e);
-// });
+const safeObj = new Section('safe');
+[hintObj, safeObj].forEach(obj => obj.form.addEventListener('submit', (e) => google(googleUrl, obj.input.value, obj.label.textContent, e)));
