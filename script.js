@@ -1,15 +1,10 @@
-class section
+// // const hintForm = document.getElementById('hint-form');
+// const hintInput = document.getElementById('hint-input');
+// const hintLabel = document.getElementById('hint-label');
 
-const fields = ['hint', 'safe'];
-const elements = ['form', 'input', 'label'];
-
-const hintForm = document.getElementById('hint-form');
-const hintInput = document.getElementById('hint-input');
-const hintLabel = document.getElementById('hint-label');
-
-const safeForm = document.getElementById('safe-form');
-const safeInput = document.getElementById('safe-input');
-const safeLabel = document.getElementById('safe-label');
+// const safeForm = document.getElementById('safe-form');
+// const safeInput = document.getElementById('safe-input');
+// const safeLabel = document.getElementById('safe-label');
 
 const history = document.getElementById('history');
 
@@ -33,13 +28,23 @@ function google(url, question, prompt, e) {
 }
 // const copyInput = inputText => { }
 
-const labels = [hintLabel, safeLabel];
-const inputs = [hintInput, safeInput];
+// const labels = [hintLabel, safeLabel];
+// const inputs = [hintInput, safeInput];
 
-[hintForm].forEach((el, index) => el.addEventListener('submit', (e) => {
-    google(googleUrl, inputs[index].value, labels[index].textContent, e);
-}));
+class Section {
+    constructor(name) {
+        this.form = document.getElementById(`${name}-form`);
+        this.input = document.getElementById(`${name}-input`);
+        this.label = document.getElementById(`${name}-label`);
+    }
+}
 
-safeForm.addEventListener('submit', (e) => {
-    google(googleUrl, safeInput.value, safeLabel.textContent, e);
-});
+
+const hintObj = new Section('hint');
+// [hintForm].forEach((el, index) => el.addEventListener('submit', (e) => {
+//     google(googleUrl, inputs[index].value, labels[index].textContent, e);
+// }));
+hintObj.form.addEventListener('submit', (e) => google(googleUrl, hintObj.input.value, hintObj.label.textContent, e));
+// safeForm.addEventListener('submit', (e) => {
+//     google(googleUrl, safeInput.value, safeLabel.textContent, e);
+// });
