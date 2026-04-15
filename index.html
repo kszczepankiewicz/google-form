@@ -9,6 +9,9 @@
         body {
             color: #fff;
             background: #000;
+        }
+
+        main {
             display: flex;
             flex-direction: column;
             gap: 1rem;
@@ -22,18 +25,24 @@
         <h1>Google Form</h1>
     </header>
     <main>
-        <form id="hint-form" action="https://www.google.com/search">
-            <label id='hint-label' for="hint-input">Hint without solution: </label>
-            <input id="hint-input" type="text" name="q"><button type="submit">Search</button>
-        </form>
-        <form id="safe-form" action="https://www.google.com/search">
-            <label id='safe-label' for="safe-input">Is it safe? </label>
-            <input id="safe-input" type="text" name="q"><button type="submit">Search</button>
-        </form>
-        <form id="general-form" action="https://www.google.com/search">
-            <label id='general-label' for="general-input">General: </label>
-            <input id="general-input" type="text" name="q"><button type="submit">Search</button>
-        </form>
+        <section>
+            <form id="hint-form" action="https://www.google.com/search">
+                <label id='hint-label' for="hint-input">Hint without solution: </label>
+                <input id="hint-input" type="text" name="q"><button type="submit">Search</button>
+            </form>
+        </section>
+        <section>
+            <form id="safe-form" action="https://www.google.com/search">
+                <label id='safe-label' for="safe-input">Is it safe? </label>
+                <input id="safe-input" type="text" name="q"><button type="submit">Search</button>
+            </form>
+        </section>
+        <section>
+            <form id="general-form" action="https://www.google.com/search">
+                <label id='general-label' for="general-input">General: </label>
+                <input id="general-input" type="text" name="q"><button type="submit">Search</button>
+            </form>
+        </section>
         <h2>History:</h2>
         <ol id="history"></ol>
     </main>

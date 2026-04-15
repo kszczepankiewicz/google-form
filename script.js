@@ -1,3 +1,8 @@
+class section
+
+const fields = ['hint', 'safe'];
+const elements = ['form', 'input', 'label'];
+
 const hintForm = document.getElementById('hint-form');
 const hintInput = document.getElementById('hint-input');
 const hintLabel = document.getElementById('hint-label');
