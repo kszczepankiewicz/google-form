@@ -10,7 +10,6 @@ function google(url, question, prompt, e) {
     } catch (error) {
         alert('Not open');
     }
-    debugger
     addToHistory(prompt, question);
     // hintInput.value = ''; // not working
 }
